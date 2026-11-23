@@ -58,3 +58,12 @@ Das Modul schleift zehn `BiquadFilterNode`-Filter zwischen den vorhandenen OpenW
 Rein privates, unabhängiges Hobbyprojekt. Kein Projekt, Produkt oder offizielles Plugin von OpenWebRX oder OpenWebRX+. Keine Verbindung, Beauftragung, Unterstützung, Prüfung oder Empfehlung durch deren Entwickler oder Rechteinhaber.
 
 Installation, Nutzung, Veränderung und Weitergabe vollständig auf eigene Gefahr. Soweit gesetzlich zulässig keine Haftung für Schäden, Ausfälle, Datenverlust, Hörschäden oder sonstige technische und rechtliche Folgen. Lautstärke vorsichtig einstellen, vorher Backups erstellen und zuerst auf einem Testsystem prüfen.
+
+---
+
+## Verbindungen im DNX-Ökosystem
+
+![DNX Gesamtarchitektur & Verbindungen](docs/dnx-architektur-verbindungen.png)
+
+* **Verbindung zu `DNX-Styler` (`#dnx-eq-panel` & `t_eq`):** Im Block `#dnx-blk-tools` schaltet **`Grafik-EQ`** (`t_eq`, `.eq-on`) den 10-Band-Audio-Equalizer direkt ein/aus; kompakte Ansichten werden über `localStorage["dnx.eq.kompakt.v2"]` gespeichert und mit `styler_share.py` (`:8098`) verteilt.
+* **Verbindung zu `DNX-Receiver-Account-Control`:** Das Recht **`equalizer`** über `:8095/api/me` steuert die Nutzung pro Rolle (`guest`, `user`, `extended`, `admin`).
